@@ -8,7 +8,7 @@
     <title>Paises</title>
 </head>
 <body>
-    <h1>PAISES DE LA REGION</h1>
+    <h1>Paises Del Mundo</h1>
 
     <div>
         <table class="table table-dark-striped">

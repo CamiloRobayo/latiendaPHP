@@ -93,34 +93,34 @@ Route::get('/Paises', function () {
                 "Cali",
             ]
         ],
-        "Peru" => [
-            "CAPITAL" => "Lima",
-            "MONEDA" => "Sol",
-            "POBLACION" => 32.97,
+        "Francia" => [
+            "CAPITAL" => "Paris",
+            "MONEDA" => "Euro",
+            "POBLACION" => 67.39,
             "CIUDADES" => [
-                "Cusco",
-                "Arequipa",
-                "Trujillo",
+                "Marsella",
+                "Lyon",
+                "Burdeos",
             ]
         ],
-        "Paraguay" => [
-            "CAPITAL" => "Asunción",
-            "MONEDA" => "Guaraní paraguayo",
-            "POBLACION" => 7.13,
+        "Grecia" => [
+            "CAPITAL" => "Atenas",
+            "MONEDA" => "Euro",
+            "POBLACION" => 10.72,
             "CIUDADES" => [
-                "Ciudad del Este",
-                "Encarnación",
-                "Villarrica",
+                "Salonica",
+                "Patras",
+                "La Canea",
             ]
         ],
-        "Ecuador" => [
-            "CAPITAL" => "Quito",
-            "MONEDA" => "Dólar Estadounidense",
-            "POBLACION" => 17.64,
+        "Australia" => [
+            "CAPITAL" => "sídney",
+            "MONEDA" => "Dolar Autraliano",
+            "POBLACION" => 25.69,
             "CIUDADES" => [
-                "Guayaquil",
-                "Cuenca",
-                "Ambato",
+                "Gold Coast",
+                "Melbourne",
+                "Brisbane",
             ]
         ],
         "Argentina" => [
@@ -139,3 +139,7 @@ Route::get('/Paises', function () {
 
     return view('paises')->with('paises', $paises);
 });
+
+Route::get('prueba' ,function(){
+    return view('productos.create');
+} );
