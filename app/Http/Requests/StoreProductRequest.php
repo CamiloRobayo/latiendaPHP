@@ -26,7 +26,7 @@ class StoreProductRequest extends FormRequest
         //1. Establecer reglas de validación
         return [
             "nombre" => 'required|alpha|unique:productos,nombre',
-            "desc" => 'required|max:1001',
+            "desc" => 'required|max:100',
             "precio" => 'required|numeric|max:10000',
             "imagen" => 'required|image',
             "categoria" => 'required',
