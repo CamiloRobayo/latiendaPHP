@@ -5,7 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\categoria>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Categoria>
  */
 class CategoriaFactory extends Factory
 {
@@ -17,7 +17,7 @@ class CategoriaFactory extends Factory
     public function definition()
     {
         return [
-           'nombre' =>$this->faker->word
+            'nombre' => $this->faker->word()
         ];
     }
 }

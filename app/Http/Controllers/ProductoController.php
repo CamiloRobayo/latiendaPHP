@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Producto;
 use App\Models\Marca;
-Use App\Models\Categoria;
+use App\Models\Categoria;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreProductRequest;
+use Illuminate\Support\Facades\Validator;
 
 class ProductoController extends Controller
 {
@@ -16,7 +18,11 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        echo "aqui va a ir el catalogo de productos";
+        //seleccionar los productos en un arreglo 
+        $productos = Producto::all();
+        //mostrar la vista del catalogo, llevandole los productos
+        return view('productos.index')
+              ->with('productos' , $productos);
     }
 
     /**
@@ -26,14 +32,9 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        //Seleccionar marcas en bd: model marca
-        $marcas = marca::all();
-        //categorias
+        $marcas = Marca::all();
         $categorias = Categoria::all();
-        //mostrar el form, enviando los datos
-        return view('productos.create')
-        ->with("marcas", $marcas)
-        ->with("categorias", $categorias);
+        return view('producto.create')->with("marcas", $marcas)->with("categorias", $categorias);
     }
 
     /**
@@ -42,17 +43,26 @@ class ProductoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProductRequest $request)
     {
-        //crear entidad <<producto
         $p = new Producto();
-        $p->nombre = $request->Nombre;
-        $p->desc = $request->desc;
+        $p->nombre = $request->nombre;
+        $p->descripcion = $request->desc;
         $p->precio = $request->precio;
-        $p->marca_id = $request->Marca;
+        $p->marca_id = $request->marca;
         $p->categoria_id = $request->categoria;
+        //obejto file
+        $archivo = $request->imagen;
+        $p->imagen = $archivo->getClientOriginalName();
+        //ruta donde se almcena el archivo
+        $ruta = public_path()."/img";
+        //movemos archivo a l ruta
+        $archivo->move($ruta, $request->imagen->getClientOriginalName());
+
         $p->save();
-        echo "Producto Registrado";
+
+        //redireccionar a una ruta disponible
+        return redirect('productos/create')->with('mensaje', "producto registrado exitosamente.");
         
     }
 
@@ -64,7 +74,7 @@ class ProductoController extends Controller
      */
     public function show($producto)
     {
-        echo "aqui se va a mostrar el detalle de producto";
+        echo "Aquí se va a mostrar el detalle del producto.";
     }
 
     /**
@@ -75,7 +85,7 @@ class ProductoController extends Controller
      */
     public function edit($producto)
     {
-        echo "aqui se muestra el form de editar producto";
+        echo "Aquí se muestra el form de editar producto.";
     }
 
     /**
@@ -87,7 +97,7 @@ class ProductoController extends Controller
      */
     public function update(Request $request, Producto $producto)
     {
-        echo"guarda el producto editado";
+        echo "Guarda el producto editado.";
     }
 
     /**
@@ -98,6 +108,6 @@ class ProductoController extends Controller
      */
     public function destroy(Producto $producto)
     {
-        echo "para eliminar el producto";
+        echo "Eliminar el producto.";
     }
 }

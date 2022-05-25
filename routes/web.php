@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,17 +15,14 @@ use App\Http\Controllers\ProductoController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('Welcome');
 });
 
-//primera ruta
+// First Route
+// Route -> get
 
-Route::get( 'hola', function(){
-    echo "petro presidente";
-});
-
-Route::get('/Home', function () {
-    echo "<h1>Hola ficha 2236903</h1>";
+Route::get('/Home', function () { 
+    echo "Hola le dijo la araña a la mosca"; 
 });
 
 Route::get('/Arreglo', function() {
@@ -93,34 +91,34 @@ Route::get('/Paises', function () {
                 "Cali",
             ]
         ],
-        "Francia" => [
-            "CAPITAL" => "Paris",
-            "MONEDA" => "Euro",
-            "POBLACION" => 67.39,
+        "Peru" => [
+            "CAPITAL" => "Lima",
+            "MONEDA" => "Sol",
+            "POBLACION" => 32.97,
             "CIUDADES" => [
-                "Marsella",
-                "Lyon",
-                "Burdeos",
+                "Cusco",
+                "Arequipa",
+                "Trujillo",
             ]
         ],
-        "Grecia" => [
-            "CAPITAL" => "Atenas",
-            "MONEDA" => "Euro",
-            "POBLACION" => 10.72,
+        "Paraguay" => [
+            "CAPITAL" => "Asunción",
+            "MONEDA" => "Guaraní paraguayo",
+            "POBLACION" => 7.13,
             "CIUDADES" => [
-                "Salonica",
-                "Patras",
-                "La Canea",
+                "Ciudad del Este",
+                "Encarnación",
+                "Villarrica",
             ]
         ],
-        "Australia" => [
-            "CAPITAL" => "sídney",
-            "MONEDA" => "Dolar Autraliano",
-            "POBLACION" => 25.69,
+        "Ecuador" => [
+            "CAPITAL" => "Quito",
+            "MONEDA" => "Dólar Estadounidense",
+            "POBLACION" => 17.64,
             "CIUDADES" => [
-                "Gold Coast",
-                "Melbourne",
-                "Brisbane",
+                "Guayaquil",
+                "Cuenca",
+                "Ambato",
             ]
         ],
         "Argentina" => [
@@ -140,13 +138,9 @@ Route::get('/Paises', function () {
     return view('paises')->with('paises', $paises);
 });
 
-Route::get('prueba' ,function(){
-    return view('productos.create');
-} );
-
 /**
  * Rutas REST Producto
  * 
  */
-Route::resource('productos', 
-         ProductoController::class );
+
+ Route::resource('productos', ProductoController::class);

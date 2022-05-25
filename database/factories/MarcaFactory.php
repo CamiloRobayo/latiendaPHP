@@ -5,7 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\marca>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Marca>
  */
 class MarcaFactory extends Factory
 {
@@ -17,7 +17,7 @@ class MarcaFactory extends Factory
     public function definition()
     {
         return [
-            'nombre' =>$this->faker->word
+            'nombre' => $this->faker->word()
         ];
     }
 }
