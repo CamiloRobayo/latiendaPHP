@@ -74,7 +74,12 @@ class ProductoController extends Controller
      */
     public function show($producto)
     {
-        echo "Aquí se va a mostrar el detalle del producto.";
+        //seleccionar el producto a mostrar;
+        $p = Producto::find($producto);
+        //mostrar la de detalle de producto
+        //enviandole el producto seleccionado 
+        return view('producto.details')
+                ->with('producto' , $p);
     }
 
     /**
@@ -83,6 +88,7 @@ class ProductoController extends Controller
      * @param  \App\Models\Producto  $producto
      * @return \Illuminate\Http\Response
      */
+
     public function edit($producto)
     {
         echo "Aquí se muestra el form de editar producto.";
