@@ -32,7 +32,7 @@
                           <span class="card-title grey-text text-darken-4">{{ $producto->nombre }}<i class="material-icons right"></i></span>
                           <ul>
                           <li>Descripcion: {{ $producto->descripcion}}</li>
-                          <li>Descripcion: {{ $producto->precio}}</li>
+                          <li>precio: {{ $producto->precio}}</li>
                           </ul>
                         </div>
                         <div class="card-action">

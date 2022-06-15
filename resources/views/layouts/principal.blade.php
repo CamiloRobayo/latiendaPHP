@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('materialize/css/materialize.css') }}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>La Tienda de PHP</title>
 </head>
 <body>
@@ -12,8 +13,8 @@
         <div class="nav-wrapper">
         <a href="#!" class="brand-logo center">LA TIENDA PHP</a>
         <ul class="left hide-on-med-and-down">
-            <li><a href="badges.html">Productos</a></li>
-            <li class="active"><a href="collapsible.html">Pedidos</a></li>
+            <li><a href="{{ route('productos.store') }}">Productos</a></li>
+            <li><a href="{{url('cart')}}">Carrito</a></li>
         </ul>
         </div>
     </nav>
